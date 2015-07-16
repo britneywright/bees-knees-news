@@ -1,0 +1,6 @@
+<div class="comment_details">
+  <%= link_to comment.user.username, comment.user %> <% time_ago_in_words(comment.post.created_at) %>
+</div>
+<div class="comment_body">
+  <%= comment.body %>
+</div>

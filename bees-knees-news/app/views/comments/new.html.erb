@@ -1,0 +1,7 @@
+<h2>New Comment</h2>
+<div class="form" id="new_comment">
+  <%= form_for([@post, @comment]) do |f| %>
+    <%= render partial: "form", locals: {f: f} %>
+    <%= f.submit "Add new comment" %>
+  <% end %>
+</div>
