@@ -1,0 +1,4 @@
+<h2><%= @user.username %>'s submissions</h2>
+<% @submissions.each do |post| %>
+  <%= render partial: 'posts/post', locals: {post: post} %>
+<% end %>

@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    # @user = User.find_by(id: sessions[:id])
+    # @user = User.find_by(id: sessions[:user_id])
     @post = Post.new
   end
 
@@ -28,8 +28,8 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.find_by(post_params)
-    if @post.save
+    @post = Post.find_by(id: params[:id])
+    if @post.update(post_params)
       redirect_to post, notice: "Post updated successfully!"
     else
       flash[:errors] = post.errors.full_messages

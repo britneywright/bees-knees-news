@@ -1,0 +1,4 @@
+<h2><%= @user.username %>'s comments</h2>
+<% @comments.each do |comment| %>
+  <%= render partial: 'comments/comment', locals: {comment: comment} %>
+<% end %>

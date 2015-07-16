@@ -1,0 +1,10 @@
+<div>
+  <div>user: <%= @user.username %></div>
+  <div>created: <%= time_ago_in_words(@user.created_at) %></div>
+  <div>about: <%= @user.about %></div>
+</div>
+
+<div>
+  <div><%= link_to "submissions", submissions_user_path(@user) %></div>
+  <div><%= link_to "comments", comments_user_path(@user) %></div>
+</div>
