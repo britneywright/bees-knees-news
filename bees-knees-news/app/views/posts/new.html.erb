@@ -1,0 +1,7 @@
+<h2>New Post</h2>
+<div class="form" id="new_post">
+  <%= form_for @post do |f| %>
+    <%= render partial: "form", locals: {f: f} %>
+    <%= f.submit "Add new post" %>
+  <% end %>
+</div>

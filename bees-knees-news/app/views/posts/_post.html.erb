@@ -1,0 +1,6 @@
+<li>
+  <h3><%= link_to post.title, post.link %> <small>(<%= post.link %>)</small></h3>
+  <div class = "post_details">
+    by <%= post.user.username %> | <%= link_to time_ago_in_words(post.created_at), post %> | <%= link_to "#{post.comments.count} comments", post %>
+  </div>
+</li>

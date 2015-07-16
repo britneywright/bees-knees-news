@@ -1,0 +1,7 @@
+<h2>Edit Post</h2>
+<div class="form" id="edit_post">
+  <%= form_for @post do |f| %>
+    <%= render partial: "form", locals: {f: f} %>
+    <%= f.submit "Update post" %>
+  <% end %>
+</div>
