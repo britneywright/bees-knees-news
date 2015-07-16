@@ -6,10 +6,11 @@ class CommentsController < ApplicationController
 
   def create
     post = Post.find_by(id: params[:post_id])
-    user = User.find_by(id: sessions[:user_id])
     comment = Comment.new(comment_params)
+    comment.post = post
+    comment.user = current_user
     if comment.save
-      redirect_to post, notice: "Comment added successfully!"
+      redirect_to comment.post, notice: "Comment added successfully!"
     else
       flash[:errors] = comment.errors.full_messages
       redirect_to post

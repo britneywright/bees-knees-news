@@ -1,0 +1,7 @@
+<h2> Login</h2>
+<div class="login_form">
+  <%= form_tag action: :login do %>
+    <%= render partial: 'users/form' %>
+    <%= submit_tag "Login" %>
+  <% end %>
+</div>

@@ -8,17 +8,16 @@ class PostsController < ApplicationController
   end
 
   def new
-    # @user = User.find_by(id: sessions[:user_id])
     @post = Post.new
   end
 
   def create
-    @user = User.find_by(id: sessions[:id])
     @post = Post.new(post_params)
+    @post.user = current_user
     if @post.save
-      redirect_to post, notice: "Post created successfully!"
+      redirect_to @post, notice: "Post created successfully!"
     else
-      flash[:errors] = post.errors.full_messages
+      flash[:errors] = @post.errors.full_messages
       redirect_to new_post_path
     end
   end
