@@ -5,3 +5,11 @@
     <%= submit_tag "Login" %>
   <% end %>
 </div>
+
+<h2>Sign Up</h2>
+<div class="login_form">
+  <%= form_for @user, action: :create do |f| %>
+    <%= render partial: "users/new_form", locals: {f: f} %>
+    <%= f.submit "Sign Up" %>
+  <% end %>
+</div>

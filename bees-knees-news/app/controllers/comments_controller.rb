@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   def new
+    authorize
     @post = Post.find_by(id: params[:post_id])
     @comment = Comment.new
   end

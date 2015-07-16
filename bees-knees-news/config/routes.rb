@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create]
   get 'login' => 'static_pages#login'
   post 'login' => 'sessions#login'
-  post 'logout' => 'sessions#logout'
+  get 'logout' => 'sessions#logout'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
