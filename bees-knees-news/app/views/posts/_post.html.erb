@@ -1,10 +1,15 @@
 <li>
   <h3>
   <% if session[:user_id] %>
-    <%= render 'post_votes/form' %>
+    <div class="upvote" id="post_vote">
+      <%= form_for(@post_vote, url: post_votes_path) do |f| %>
+      <%= f.hidden_field :post_id, :value => post.id %>
+        <%= f.submit '^' %>
+      <% end %>
+    </div>
   <% end %>
     <%= link_to post.title, post.link %> <small>(<%= post.link %>)</small></h3>
   <div class = "post_details">
-    <%= post.points %> points by <%= link_to post.user.username, post.user %> | <%= link_to time_ago_in_words(post.created_at), post %> | <%= link_to "#{post.comments.count} comments", post %>
+    <span class="post_points"><%= post.points %></span> points by <%= link_to post.user.username, post.user %> | <%= link_to time_ago_in_words(post.created_at), post %> | <%= link_to "#{post.comments.count} comments", post %>
   </div>
 </li>

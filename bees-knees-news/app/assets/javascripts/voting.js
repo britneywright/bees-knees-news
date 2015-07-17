@@ -7,7 +7,7 @@ $(document).ready(function(){
       data: $(event.target).serialize(),
       dataType: 'json'
     }).done(function(response){
-      console.log(response);
+      $('.post_points').html(response.points);
       console.log('success');
     }).fail(function(error){
       console.log('failure');

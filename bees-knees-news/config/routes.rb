@@ -4,8 +4,9 @@ Rails.application.routes.draw do
     resources :comments do
       resources :comment_votes, only: [:create, :update]
     end
-    resources :post_votes, only: [:create, :update]
   end
+
+resources :post_votes, only: [:create, :update]
 
   resources :users do
     member do
