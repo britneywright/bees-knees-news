@@ -1,4 +1,7 @@
 <div class="comment_details">
+  <% if session[:user_id] %>
+    <%= render 'post_votes/form' %>
+  <% end %>
   <%= link_to comment.user.username, comment.user %> <% time_ago_in_words(comment.post.created_at) %>
 </div>
 <div class="comment_body">

@@ -1,5 +1,9 @@
 <li>
-  <h3><%= link_to post.title, post.link %> <small>(<%= post.link %>)</small></h3>
+  <h3>
+  <% if session[:user_id] %>
+    <%= render 'post_votes/form' %>
+  <% end %>
+    <%= link_to post.title, post.link %> <small>(<%= post.link %>)</small></h3>
   <div class = "post_details">
     by <%= link_to post.user.username, post.user %> | <%= link_to time_ago_in_words(post.created_at), post %> | <%= link_to "#{post.comments.count} comments", post %>
   </div>

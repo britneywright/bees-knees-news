@@ -5,6 +5,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by(id: params[:id])
+    @comment_vote = CommentVote.new
+    @post_vote = PostVote.new
   end
 
   def new
@@ -46,6 +48,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :link, :user_id)
+    params.require(:post).permit(:title, :link, :user_id, comment_vote: [:upvote])
   end
 end

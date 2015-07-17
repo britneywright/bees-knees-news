@@ -2,5 +2,5 @@ class CommentVote < ActiveRecord::Base
   belongs_to :user
   belongs_to :comment
 
-  validates :user, uniqueness: true, scope: :comment
+  #validates :user, uniqueness: true, scope: :comment
 end

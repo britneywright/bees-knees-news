@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   root 'posts#index'
   resources :posts do
-    resources :comments
+    resources :comments do
+      resources :comment_votes, only: [:create, :update]
+    end
+    resources :post_votes, only: [:create, :update]
   end
 
   resources :users do
