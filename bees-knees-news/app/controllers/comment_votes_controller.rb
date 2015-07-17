@@ -1,10 +1,10 @@
 class CommentVotesController < ApplicationController
   def create
-    post = Post.find_by(id: params[:post_id])
     comment = Comment.find_by(id: params[:comment_id])
     comment_vote = CommentVote.new(comment_id: params[:comment_id], user: current_user)
-    if comment_vote.save
-      redirect_to comment.post, notice: "Upvoted!"
+    if comment_vote.save &&  request.xhr?
+      @points = comment.points
+      render json: {points: @points}.to_json
     else
       redirect_to comment.post
     end
