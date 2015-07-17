@@ -9,4 +9,8 @@ class Post < ActiveRecord::Base
 
   accepts_nested_attributes_for :comments
   accepts_nested_attributes_for :comment_votes
+
+  def points
+    self.post_votes.where(upvote: true).count
+  end
 end

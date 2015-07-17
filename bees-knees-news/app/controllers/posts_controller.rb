@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.all
+    @post_vote = PostVote.new
   end
 
   def show
