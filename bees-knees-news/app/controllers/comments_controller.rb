@@ -10,8 +10,8 @@ class CommentsController < ApplicationController
     comment = Comment.new(comment_params)
     comment.post = post
     comment.user = current_user
-    if comment.save
-      redirect_to comment.post, notice: "Comment added successfully!"
+    if comment.save && request.xhr?
+      render json: {comment: comment}.to_json
     else
       flash[:errors] = comment.errors.full_messages
       redirect_to post
