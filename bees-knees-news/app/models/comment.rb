@@ -4,4 +4,8 @@ class Comment < ActiveRecord::Base
   has_many :comment_votes
 
   validates :body, presence: true
+
+  def points
+    self.comment_votes.where(upvote: true).count
+  end  
 end

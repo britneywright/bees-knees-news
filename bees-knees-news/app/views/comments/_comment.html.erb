@@ -1,13 +1,15 @@
-<div class="comment_details">
+<div class="comment">
   <% if session[:user_id] %>
     <div class="upvote" id="comment_vote">
       <%= form_for(@comment_vote, url: post_comment_comment_votes_path(@post, comment)) do |f| %>
         <%= f.submit '^' %>
       <% end %>
-    <div>
+    </div>
   <% end %>
+  <div class="comment_details">
   <%= link_to comment.user.username, comment.user %> <% time_ago_in_words(comment.post.created_at) %>
-</div>
-<div class="comment_body">
-  <%= comment.body %>
+  </div>
+  <div class="comment_body">
+    <%= comment.body %>
+  </div>
 </div>
