@@ -1,3 +1,8 @@
-<div class="form_fields">
-  <%= f.text_area :body %>
+<div class="form" id="new_comment">
+  <%= form_for([@post, @comment]) do |f| %>
+    <div class="form_fields">
+      <%= f.text_area :body %>
+    </div>
+    <%= f.submit "Add new comment" %>
+  <% end %>
 </div>

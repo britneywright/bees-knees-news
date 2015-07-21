@@ -3,15 +3,19 @@ class CommentsController < ApplicationController
     authorize
     @post = Post.find_by(id: params[:post_id])
     @comment = Comment.new
+    if request.xhr?
+      render partial: 'form', layout: false
+    end
   end
 
   def create
     post = Post.find_by(id: params[:post_id])
     comment = Comment.new(comment_params)
+    comment_vote = CommentVote.new
     comment.post = post
     comment.user = current_user
     if comment.save && request.xhr?
-      render json: {comment: comment}.to_json
+      render partial: "comment", locals: {comment: comment, comment_vote: comment_vote, post: post}
     else
       flash[:errors] = comment.errors.full_messages
       redirect_to post
