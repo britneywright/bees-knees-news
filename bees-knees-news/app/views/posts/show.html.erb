@@ -1,14 +1,11 @@
 <%= render @post %>
 
-<div class="form" id="new_comment">
-  <%= form_for(@comment, url: post_comments_path(@post)) do |f| %>
-<%= render 'comments/form', :f => f %>
-  <%= f.submit "Add new comment" %>
-  <% end %>
+<div class="show_comment_form">
+  <%= link_to "Add a comment", new_post_comment_path(@post), class: "button_show_comment_form" %>
 </div>
 
 <div class="comments">
-  <% @post.comments.each do |comment| %>
-    <%= render partial: 'comments/comment', locals: {comment: comment} %>
+  <% @post.comments.each do |single_comment| %>
+    <%= render partial: 'comments/comment', locals: {comment: single_comment, post: @post, comment_vote: @comment_vote} %>
   <% end %>
 </div>

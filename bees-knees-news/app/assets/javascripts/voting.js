@@ -14,7 +14,7 @@ $(document).ready(function(){
     });
   });
 
-  $('.upvote#comment_vote').on('submit',function(event){
+  $('.comment').on('submit',function(event){
     event.preventDefault();
     $.ajax({
       url: event.target.action,
@@ -22,7 +22,8 @@ $(document).ready(function(){
       data: $(event.target).serialize(),
       dataType: 'json'
     }).done(function(response){
-      $('.comment_points').html(response.points);
+      var points = ($(event.target).parent().parent()).find('.comment_points');
+      points.html(response.points);
       console.log('success');
     }).fail(function(error){
       console.log('failure');
