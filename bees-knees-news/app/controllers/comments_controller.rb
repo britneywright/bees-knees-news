@@ -34,11 +34,17 @@ class CommentsController < ApplicationController
 
   def destroy
     comment = Comment.find_by(id: params[:id])
+    # use the next line in conjunction with the private method find_comment
+    # comment = find_comment
     comment.destroy
     redirect_to root_path
   end
 
   private
+  # Another way of doing things besides using a before_action
+  # def find_comment
+  #   Comment.find_by(id: params[:id])
+  # end
 
   def comment_params
     params.require(:comment).permit(:body, :user_id, :post_id)

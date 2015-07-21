@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
 
   def logout
     session[:user_id] = nil
+    # session.delete(:user_id) <-- removes the key entirely instead of setting it to nil
     redirect_to root_path, notice: "Logged out successfully!"
   end
 end

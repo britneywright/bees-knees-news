@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'posts#index'
+  # Avoid the triple level nesting
   resources :posts do
     resources :comments do
       resources :comment_votes, only: [:create, :update]
@@ -19,6 +20,8 @@ resources :post_votes, only: [:create, :update]
   get 'login' => 'static_pages#login'
   post 'login' => 'sessions#login'
   get 'logout' => 'sessions#logout'
+
+  # Remove the extra comments below when done with this file.
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

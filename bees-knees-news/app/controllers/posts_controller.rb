@@ -44,6 +44,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find_by(id: params[:id])
     @post.destroy
+    # error handling here just in case
     redirect_to root_path
   end
 
