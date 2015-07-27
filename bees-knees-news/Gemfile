@@ -1,6 +1,4 @@
 source 'https://rubygems.org'
-
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 
@@ -43,5 +41,17 @@ group :development, :test do
   gem 'spring'
 
   gem 'faker'
+  
+  gem 'rspec-rails'
+
+  gem 'factory_girl_rails'
+
+  gem 'capybara'
+
+  gem 'database_cleaner'
+
+  gem 'launchy'
+
+  gem 'selenium-webdriver'
 end
 
